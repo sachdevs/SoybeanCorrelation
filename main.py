@@ -2,9 +2,11 @@ import urllib2
 import numpy as np
 import pandas as pd
 import Quandl
+import pullquandl
 
 import time
 from authkey import key
+
 # import datetime
 
 # import pylab
@@ -19,26 +21,10 @@ def print_full(x):
     print(x)
     pd.reset_option('display.max_rows')
 
-#
-# Pull data from Quandl
-#
-# get soybean oil futures
-def pullSoybeanOilFutures():
-	return Quandl.get("CHRIS/CME_BO1", authtoken=key)
-# get soybean futures
-def pullSoybeanFutures():
-	return Quandl.get("CHRIS/CME_S1", authtoken=key)
-# get soybean oil CTR
-def pullSoybeanOilCTR():
-	return Quandl.get("CFTC/BO_F_ALL", authtoken=key)
-# get soybean CTR
-def pullSoybeanCTR():
-	return Quandl.get("CFTC/S_F_ALL", authtoken=key)
-
 #Initialize Pandas objects of scraped data
-soyOilF = pullSoybeanOilFutures()
-soyF = pullSoybeanFutures()
-soyOilCTR = pullSoybeanOilCTR()
-soyCTR = pullSoybeanCTR() 
+# soyOilF = pullquandl.pullSoybeanOilFutures()
+# soyF = pullquandl.pullSoybeanFutures()
+# soyOilCTR = pullquandl.pullSoybeanOilCTR()
+soyCTR = pullquandl.pullSoybeanCTR() 
 
 print_full(soyCTR)
