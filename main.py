@@ -25,7 +25,7 @@ def plotSoybeanOilData():
 		soyOilCTR_df, 'Cumulative Daily Returns For Soybean Oil since 1959', 'Cumulative Daily Returns For Soybean Oil')
 
 # prints 0.621154007969
-# strong linear relationship - somewhat expected since complements in production
+# strong positive linear relationship - somewhat expected since complements in production
 def calculateCorrelationCoefficient():
 	soyF_df = pullquandl.pullSoybeanFutures()
 	soyF_df['dailyReturns'] = (soyF_df['Last'] - soyF_df['Open'])/soyF_df['Open']
