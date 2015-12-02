@@ -1,19 +1,9 @@
-import urllib2
 import numpy as np
 import pandas as pd
-import Quandl
+import matplotlib.pyplot as plt
+import matplotlib
+import graph
 import pullquandl
-
-import time
-from authkey import key
-
-# import datetime
-
-# import pylab
-# import matplotlib.pyplot as plt
-# import matplotlib.ticker as mticker
-# import matplotlib.dates as mdates
-# import sys
 
 # Debugging function to print pandas obj
 def print_full(x):
@@ -21,10 +11,12 @@ def print_full(x):
     print(x)
     pd.reset_option('display.max_rows')
 
-#Initialize Pandas objects of scraped data
-# soyOilF = pullquandl.pullSoybeanOilFutures()
-# soyF = pullquandl.pullSoybeanFutures()
-# soyOilCTR = pullquandl.pullSoybeanOilCTR()
-soyCTR = pullquandl.pullSoybeanCTR() 
+soyF_df = pullquandl.pullSoybeanFutures()
+soyCTR_df = pullquandl.pullSoybeanCTR() 
+graph.draw(soyF_df, 'Total Long Short Ratio Of Soybean Future since 2006', 'Total Longs/Total Shorts', \
+	soyCTR_df, 'Cumulative Daily Returns For Soybean since 1959', 'Cumulative Daily Returns For Soybean')
 
-print_full(soyCTR)
+soyOilF_df = pullquandl.pullSoybeanOilFutures()
+soyOilCTR_df = pullquandl.pullSoybeanOilCTR()
+graph.draw(soyOilF_df, 'Total Long Short Ratio Of Soybean Oil Future since 2006', 'Total Longs/Total Shorts', \
+	soyOilCTR_df, 'Cumulative Daily Returns For Soybean Oil since 1959', 'Cumulative Daily Returns For Soybean Oil')
