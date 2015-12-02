@@ -15,5 +15,5 @@ Prints pearson correlation coefficient for soybean daily returns vs soybean oil 
 Graphs soybean/ soybean oil future daily returns (cumulative) and Long/Short ratios.
 
 ##Comments
-The daily returns are calculated a slightly simplified method, should be (at time t) (Last(t) - Last(t-1)) / Last(t-1) <br>
+The daily returns are calculated using a slightly simplified method, should be (at time t) (Last(t) - Last(t-1)) / Last(t-1). Currently it assumes no change after hours. <br>
 Done as coding challenge for [Alpha Parity LLC](http://www.alphaparity.com).
